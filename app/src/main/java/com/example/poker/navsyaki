@@ -1,0 +1,143 @@
+var isNExtRoundCalled = false
+
+        if (inGame[playersIndex] && ((tempRaise[playersIndex] != raiseDone) || (raiseDoneCounter == 0))) {
+            if (raiseDoneCounter == 0) {
+                if (playablePreFlopRaise(
+                        players[playersIndex].cart1,
+                        players[playersIndex].cart2,
+                        indexNumber,
+                        pot,
+                        raiseDoneCounter,
+                        raiseDone,
+                        callDoneCounter,
+                        tempRaise[playersIndex] == raiseDone
+                    )
+                ) {
+                    raiseDone = raise(
+                        players[playersIndex],
+                        (raiseDone * 8 / 3 - tempRaise[playersIndex])
+                    )
+                    lastRaise = lastRaiseCheck(lastRaise, playersIndex)
+                    turnLiveData.postValue(
+                        TurnState.Raise(
+                            playersIndex,
+                            raiseDone + tempRaise[playersIndex],
+                            players[playersIndex].chips
+                        )
+                    )
+                    delay(3000)
+                    pot += raiseDone
+                    turnLiveData.postValue(TurnState.Pot(pot))
+                    delay(3000)
+                    raiseDone += tempRaise[playersIndex]
+                    raiseDoneCounter += 1
+                    tempRaise[playersIndex] = raiseDone
+                } else {
+                    fold()
+                    turnLiveData.postValue(TurnState.Fold(playersIndex))
+                    delay(4000)
+                    folded++
+                    inGame[playersIndex] = false
+                    if (folded == 5) {
+                        notFolded(players, inGame, pot)
+                        turnLiveData.postValue(
+                            TurnState.Chips(
+                                playersIndex,
+                                players[playersIndex].chips
+                            )
+                        )
+                        delay(3000)
+                        isNExtRoundCalled = true
+                        turnLiveData.postValue(
+                            TurnState.NextRound(
+                                chips
+                            )
+                        )
+                        delay(5000)
+                    }
+                }
+            } else
+                if (playablePreFlopRaise(
+                        players[playersIndex].cart1,
+                        players[playersIndex].cart2,
+                        indexNumber,
+                        pot,
+                        raiseDoneCounter,
+                        raiseDone,
+                        callDoneCounter,
+                        tempRaise[playersIndex] == raiseDone
+                    )
+                ) {
+                    raiseDone = raise(
+                        players[playersIndex],
+                        (raiseDone * 8 / 3 - tempRaise[playersIndex])
+                    )
+                    turnLiveData.postValue(
+                        TurnState.Raise(
+                            playersIndex,
+                            raiseDone + tempRaise[playersIndex],
+                            players[playersIndex].chips
+                        )
+                    )
+                    delay(3000)
+                    pot += raiseDone
+                    turnLiveData.postValue(TurnState.Pot(pot))
+                    delay(3000)
+                    raiseDone += tempRaise[playersIndex]
+                    lastRaise = lastRaiseCheck(lastRaise, playersIndex)
+                    raiseDoneCounter += 1
+                    tempRaise[playersIndex] = raiseDone
+                } else
+                    if (playablePreFlopCall(
+                            tempRaise[playersIndex] == raiseDone
+                        )
+                    ) {
+                        callDoneCounter += 1
+                        raise(players[playersIndex], (raiseDone - tempRaise[playersIndex]))
+                        turnLiveData.postValue(
+                            TurnState.Call(
+                                playersIndex,
+                                raiseDone,
+                                players[playersIndex].chips
+                            )
+                        )
+                        delay(3000)
+                        pot += (raiseDone - tempRaise[playersIndex])
+                        turnLiveData.postValue(TurnState.Pot(pot))
+                        delay(3000)
+                        tempRaise[playersIndex] = raiseDone
+                    } else {
+
+                        fold()
+                        turnLiveData.postValue(TurnState.Fold(playersIndex))
+                        delay(3000)
+                        folded++
+                        inGame[playersIndex] = false
+                        if (folded == 5) {
+                            notFolded(players, inGame, pot)
+                            turnLiveData.postValue(
+                                TurnState.Chips(
+                                    playersIndex,
+                                    players[playersIndex].chips
+                                )
+                            )
+                            delay(3000)
+                            isNExtRoundCalled=true
+                            turnLiveData.postValue(
+                                TurnState.NextRound(
+                                    chips
+                                )
+                            )
+                            delay(5000)
+                        }
+                    }
+        }
+       if(!isNExtRoundCalled) {
+           turnLiveData.postValue(
+               TurnState.NextLoop(
+                   turnLiveData,indexNumber
+               )
+           ) }
+        delay(5000)
+    }
+

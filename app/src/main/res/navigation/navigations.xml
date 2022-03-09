@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigations"
+    app:startDestination="@id/baseFragment">
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.poker.game.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_endFragment"
+            app:destination="@id/endFragment" />
+        <argument
+            android:name="account"
+            app:argType="string"
+            android:defaultValue="User" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/endFragment"
+        android:name="com.example.poker.end.EndFragment"
+        android:label="fragment_end"
+        tools:layout="@layout/fragment_end" />
+    <fragment
+        android:id="@+id/baseFragment"
+        android:name="com.example.poker.base.BaseFragment"
+        android:label="fragment_base"
+        tools:layout="@layout/fragment_base">
+        <action
+            android:id="@+id/action_baseFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+
+    </fragment>
+</navigation>

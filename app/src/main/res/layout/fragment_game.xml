@@ -1,0 +1,1272 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/poker_table"
+    tools:context="game.GameFragment">
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/mid_deck"
+        android:layout_width="265dp"
+        android:layout_height="70dp"
+        android:background="@drawable/poker_table_mid"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_button_bot_0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/tv_deck0"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        android:textSize="11sp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="@+id/mid_deck"
+        app:layout_constraintTop_toTopOf="@+id/mid_deck"
+        app:layout_constraintBottom_toBottomOf="@+id/mid_deck"
+        tools:text="deck0" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/tv_deck1"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        android:textSize="11sp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/tv_deck0"
+        app:layout_constraintTop_toTopOf="@+id/tv_deck0"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_deck0"
+        tools:text="deck1" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/tv_deck2"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        android:textSize="11sp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/tv_deck1"
+        app:layout_constraintTop_toTopOf="@+id/tv_deck1"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_deck1"
+        tools:text="deck2" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/tv_deck3"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        android:textSize="11sp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/tv_deck2"
+        app:layout_constraintTop_toTopOf="@+id/tv_deck2"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_deck2"
+        tools:text="deck3" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/tv_deck4"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        android:textSize="11sp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/tv_deck3"
+        app:layout_constraintTop_toTopOf="@+id/tv_deck3"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_deck3"
+        tools:text="deck4" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_pot"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/pot"
+        app:layout_constraintTop_toBottomOf="@id/mid_deck"
+        app:layout_constraintStart_toStartOf="@id/mid_deck" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/pot_size"
+        android:layout_marginStart="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        android:text="@string/pot"
+        app:layout_constraintTop_toTopOf="@id/iv_pot"
+        app:layout_constraintBottom_toBottomOf="@id/iv_pot"
+        app:layout_constraintStart_toEndOf="@id/iv_pot"
+        tools:text="potSize" />
+
+
+
+
+    <EditText
+        android:id="@+id/raise_slider"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:textAlignment="center"
+        android:inputType="number"
+        android:visibility="invisible"
+        android:hint="@string/raise_size"
+        android:maxLength="7"
+        android:maxLines="1"
+        android:textStyle="bold"
+        android:text="0"
+        android:background="@drawable/starting_bg_2"
+        android:textColor="#3A0443"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/iv_button_bot_0"
+        app:layout_constraintTop_toTopOf="@id/iv_button_bot_0"
+        android:importantForAutofill="no">
+    </EditText>
+
+<!--stegh raisi size-@ piti sarqem sranov aveli chisht dzevov edit texti tegh@-->
+<!--    <androidx.appcompat.widget.AppCompatSeekBar-->
+<!--        android:id="@+id/sb_bet_range"-->
+<!--        android:layout_width="100dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="150dp"-->
+<!--        android:outlineAmbientShadowColor="@color/black"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+    <Button
+        android:id="@+id/player_fold_button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="5dp"
+        android:text="@string/fold"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:clickable="false"
+        android:visibility="gone"
+        android:background="@drawable/raise_call_fold_button_bg"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/cl_bot_0"
+        app:layout_constraintStart_toEndOf="@id/cl_bot_0"
+        app:layout_constraintTop_toBottomOf="@+id/iv_button_bot_0" />
+    <Button
+        android:id="@+id/player_call_button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        android:textColor="@color/black"
+        android:clickable="false"
+        android:background="@drawable/raise_call_fold_button_bg"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        android:text="@string/call"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toEndOf="@id/player_raise_button"
+        app:layout_constraintBottom_toBottomOf="@id/player_raise_button" />
+    <Button
+        android:id="@+id/player_raise_button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        android:textSize="15sp"
+        android:clickable="false"
+        android:textAlignment="center"
+        android:background="@drawable/raise_call_fold_button_bg"
+        android:textColor="@color/black"
+        android:text="@string/raise"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toEndOf="@id/player_fold_button"
+        app:layout_constraintBottom_toBottomOf="@id/player_fold_button" />
+
+    <Button
+        android:id="@+id/player_check_button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        android:clickable="false"
+        android:background="@drawable/raise_call_fold_button_bg"
+        android:textSize="15sp"
+        android:text="@string/check"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toEndOf="@id/player_raise_button"
+        app:layout_constraintBottom_toBottomOf="@id/player_raise_button"
+        tools:layout_editor_absoluteY="388dp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_button_bot_0"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:visibility="invisible"
+        android:background="@drawable/dealer"
+        app:layout_constraintStart_toEndOf="@id/cl_bot_0"
+        app:layout_constraintTop_toTopOf="@id/cl_bot_0" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_raise_bot_0"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:visibility="invisible"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/raise"
+        app:layout_constraintStart_toStartOf="@id/cl_bot_0"
+        app:layout_constraintBottom_toTopOf="@id/cl_bot_0" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_raise_bot_O"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@id/iv_raise_bot_0"
+        app:layout_constraintTop_toTopOf="@id/iv_raise_bot_0"
+        app:layout_constraintBottom_toBottomOf="@id/iv_raise_bot_0"
+        tools:text="raiseBot0" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_check_bot_0"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:layout_marginBottom="5dp"
+        android:visibility="invisible"
+        android:background="@drawable/check"
+        app:layout_constraintStart_toStartOf="@id/cl_bot_0"
+        app:layout_constraintBottom_toTopOf="@id/cl_bot_0" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_check_bot_O"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="CHECK"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@id/iv_raise_bot_0"
+        app:layout_constraintTop_toTopOf="@id/iv_raise_bot_0"
+        app:layout_constraintBottom_toBottomOf="@id/iv_raise_bot_0"
+        tools:text="CHECK" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_fold_bot_0"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:visibility="invisible"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/fold"
+        app:layout_constraintStart_toStartOf="@id/cl_bot_0"
+        app:layout_constraintBottom_toTopOf="@id/cl_bot_0" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_fold_bot_O"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="@string/fold"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@id/iv_raise_bot_0"
+        app:layout_constraintTop_toTopOf="@id/iv_raise_bot_0"
+        app:layout_constraintBottom_toBottomOf="@id/iv_raise_bot_0"
+        tools:text="FOLD" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_bot_0"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bot_profile_picture"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot0_frame_highlight_green"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/picture_frame_green"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot0_frame_highlight_red"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/picture_frame_red"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tv_bot_0_card1"
+            android:layout_width="31dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:visibility="visible"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tv_bot_0_card2"
+            android:layout_width="31dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/tv_bot_0_card1"
+            app:layout_constraintStart_toEndOf="@id/tv_bot_0_card1"
+            app:layout_constraintTop_toTopOf="@id/tv_bot_0_card1"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot_0_chip"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="2dp"
+            android:src="@drawable/poker_chip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bot_0_chip_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_bot_0_chip"
+            app:layout_constraintStart_toEndOf="@id/iv_bot_0_chip"
+            app:layout_constraintTop_toTopOf="@id/iv_bot_0_chip"
+            tools:text="123456789" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bot_0_name"
+            android:layout_width="31dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:textColor="#6E4BA6"
+            android:maxLength="4"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="User" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_button_bot_1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:visibility="invisible"
+        android:background="@drawable/dealer"
+        app:layout_constraintStart_toEndOf="@id/cl_bot1"
+        app:layout_constraintTop_toTopOf="@id/cl_bot1" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_raise_bot_1"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="5dp"
+        android:visibility="invisible"
+        android:background="@drawable/raise"
+        app:layout_constraintStart_toStartOf="@id/cl_bot1"
+        app:layout_constraintBottom_toTopOf="@id/cl_bot1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_raise_bot_1"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@id/iv_raise_bot_1"
+        app:layout_constraintTop_toTopOf="@id/iv_raise_bot_1"
+        app:layout_constraintBottom_toBottomOf="@id/iv_raise_bot_1"
+        tools:text="raiseBot1" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_check_bot_1"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:layout_marginBottom="5dp"
+        android:visibility="invisible"
+        android:layout_marginStart="50dp"
+        android:background="@drawable/check"
+        app:layout_constraintStart_toStartOf="@id/cl_bot1"
+        app:layout_constraintBottom_toTopOf="@id/cl_bot1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_check_bot_1"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        android:text="@string/check"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@id/iv_raise_bot_1"
+        app:layout_constraintTop_toTopOf="@id/iv_raise_bot_1"
+        app:layout_constraintBottom_toBottomOf="@id/iv_raise_bot_1"
+        tools:text="CHECK" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_fold_bot_1"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:visibility="invisible"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/fold"
+        app:layout_constraintStart_toStartOf="@id/cl_bot1"
+        app:layout_constraintBottom_toTopOf="@id/cl_bot1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_fold_bot_1"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        android:text="@string/fold"
+        app:layout_constraintStart_toEndOf="@id/iv_raise_bot_1"
+        app:layout_constraintTop_toTopOf="@id/iv_raise_bot_1"
+        app:layout_constraintBottom_toBottomOf="@id/iv_raise_bot_1"
+        tools:text="FOLD" />
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_bot1"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="55dp"
+        android:background="@drawable/bot_profile_picture"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot1_frame_highlight_green"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/picture_frame_green"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot1_frame_highlight_red"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/picture_frame_red"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tv_bot1_card1"
+            android:layout_width="31dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:visibility="visible"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tv_bot1_card2"
+            android:layout_width="31dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/tv_bot1_card1"
+            app:layout_constraintStart_toEndOf="@id/tv_bot1_card1"
+            app:layout_constraintTop_toTopOf="@id/tv_bot1_card1" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot1_chip"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="2dp"
+            android:src="@drawable/poker_chip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bot1_chip_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:textColor="@color/white"
+            android:inputType="number"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_bot1_chip"
+            app:layout_constraintStart_toEndOf="@id/iv_bot1_chip"
+            app:layout_constraintTop_toTopOf="@id/iv_bot1_chip"
+            tools:text="123456789" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bot1_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Bot1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_button_bot_2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        android:background="@drawable/dealer"
+        app:layout_constraintStart_toStartOf="@id/cl_bot2"
+        app:layout_constraintTop_toBottomOf="@id/cl_bot2"/>
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_raise_bot2"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="10dp"
+        android:visibility="invisible"
+        android:background="@drawable/raise"
+        app:layout_constraintStart_toEndOf="@id/iv_button_bot_2"
+        app:layout_constraintTop_toTopOf="@id/iv_button_bot_2"
+        app:layout_constraintBottom_toBottomOf="@id/iv_button_bot_2"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_raise_bot2"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@id/iv_raise_bot2"
+        app:layout_constraintTop_toTopOf="@id/iv_raise_bot2"
+        app:layout_constraintBottom_toBottomOf="@id/iv_raise_bot2"
+        tools:text="raiseBot2" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_check_bot2"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="10dp"
+        android:visibility="invisible"
+        android:background="@drawable/check"
+        app:layout_constraintStart_toEndOf="@id/iv_button_bot_2"
+        app:layout_constraintTop_toTopOf="@id/iv_button_bot_2"
+        app:layout_constraintBottom_toBottomOf="@id/iv_button_bot_2"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_check_bot2"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:text="@string/check"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@id/iv_raise_bot2"
+        app:layout_constraintTop_toTopOf="@id/iv_raise_bot2"
+        app:layout_constraintBottom_toBottomOf="@id/iv_raise_bot2"
+        tools:text="@string/check" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_fold_bot2"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="10dp"
+        android:visibility="invisible"
+        android:background="@drawable/fold"
+        app:layout_constraintStart_toEndOf="@id/iv_button_bot_2"
+        app:layout_constraintTop_toTopOf="@id/iv_button_bot_2"
+        app:layout_constraintBottom_toBottomOf="@id/iv_button_bot_2"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_fold_bot2"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:text="FOLD"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@id/iv_raise_bot2"
+        app:layout_constraintTop_toTopOf="@id/iv_raise_bot2"
+        app:layout_constraintBottom_toBottomOf="@id/iv_raise_bot2"
+        tools:text="@string/check" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_bot2"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bot_profile_picture"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot2_frame_highlight_green"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/picture_frame_green"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot2_frame_highlight_red"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/picture_frame_red"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tv_bot2_card1"
+            android:layout_width="31dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:visibility="visible"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tv_bot2_card2"
+            android:layout_width="31dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/tv_bot2_card1"
+            app:layout_constraintStart_toEndOf="@id/tv_bot2_card1"
+            app:layout_constraintTop_toTopOf="@id/tv_bot2_card1" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot2_chip"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="2dp"
+            android:src="@drawable/poker_chip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bot2_chip_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@id/iv_bot2_chip"
+            app:layout_constraintStart_toEndOf="@id/iv_bot2_chip"
+            app:layout_constraintTop_toTopOf="@id/iv_bot2_chip"
+            tools:text="123456789" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bot2_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Bot2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_button_bot3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:visibility="invisible"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/dealer"
+        app:layout_constraintBottom_toBottomOf="@id/cl_bot3"
+        app:layout_constraintEnd_toStartOf="@id/cl_bot3" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_raise_bot3"
+        android:layout_width="30dp"
+        android:visibility="invisible"
+        android:layout_height="16dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/raise"
+        app:layout_constraintTop_toBottomOf="@id/cl_bot3"
+        app:layout_constraintStart_toStartOf="@id/cl_bot3"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_raise_bot3"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@id/iv_raise_bot3"
+        app:layout_constraintTop_toTopOf="@id/iv_raise_bot3"
+        app:layout_constraintBottom_toBottomOf="@id/iv_raise_bot3"
+        tools:text="raiseBot3" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_check_bot3"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:visibility="invisible"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/check"
+        app:layout_constraintTop_toBottomOf="@id/cl_bot3"
+        app:layout_constraintStart_toStartOf="@id/cl_bot3"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_check_bot3"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        android:textSize="11sp"
+        android:text="@string/check"
+        app:layout_constraintStart_toEndOf="@id/iv_raise_bot3"
+        app:layout_constraintTop_toTopOf="@id/iv_raise_bot3"
+        app:layout_constraintBottom_toBottomOf="@id/iv_raise_bot3"
+        tools:text="@string/check" />
+
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_fold_bot3"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:visibility="invisible"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/fold"
+        app:layout_constraintTop_toBottomOf="@id/cl_bot3"
+        app:layout_constraintStart_toStartOf="@id/cl_bot3"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_fold_bot3"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        android:textSize="11sp"
+        android:text="@string/fold"
+        app:layout_constraintStart_toEndOf="@id/iv_raise_bot3"
+        app:layout_constraintTop_toTopOf="@id/iv_raise_bot3"
+        app:layout_constraintBottom_toBottomOf="@id/iv_raise_bot3"
+        tools:text="@string/fold" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_bot3"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/bot_profile_picture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot3_frame_highlight_green"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/picture_frame_green"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot3_frame_highlight_red"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/picture_frame_red"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tv_bot3_card1"
+            android:layout_width="31dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:visibility="visible"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tv_bot3_card2"
+            android:layout_width="31dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/tv_bot3_card1"
+            app:layout_constraintStart_toEndOf="@id/tv_bot3_card1"
+            app:layout_constraintTop_toTopOf="@id/tv_bot3_card1" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot3_chip"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="2dp"
+            android:src="@drawable/poker_chip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bot3_chip_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@id/iv_bot3_chip"
+            app:layout_constraintStart_toEndOf="@id/iv_bot3_chip"
+            app:layout_constraintTop_toTopOf="@id/iv_bot3_chip"
+            tools:text="123456789" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bot3_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Bot3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_button_bot_4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:visibility="invisible"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/dealer"
+        app:layout_constraintEnd_toStartOf="@id/cl_bot4"
+        app:layout_constraintBottom_toBottomOf="@id/cl_bot4" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_check_bot4"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:visibility="invisible"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/check"
+        app:layout_constraintTop_toBottomOf="@id/iv_button_bot_4"
+        app:layout_constraintStart_toStartOf="@id/iv_button_bot_4"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_check_bot4"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        android:textSize="11sp"
+        android:text="@string/check"
+        app:layout_constraintStart_toEndOf="@id/iv_raise_bot4"
+        app:layout_constraintTop_toTopOf="@id/iv_raise_bot4"
+        app:layout_constraintBottom_toBottomOf="@id/iv_raise_bot4"
+        tools:text="@string/check" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_fold_bot4"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:visibility="invisible"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/fold"
+        app:layout_constraintTop_toBottomOf="@id/iv_button_bot_4"
+        app:layout_constraintStart_toStartOf="@id/iv_button_bot_4"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_fold_bot4"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        android:text="@string/fold"
+        app:layout_constraintStart_toEndOf="@id/iv_raise_bot4"
+        app:layout_constraintTop_toTopOf="@id/iv_raise_bot4"
+        app:layout_constraintBottom_toBottomOf="@id/iv_raise_bot4"
+        tools:text="@string/fold" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_raise_bot4"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        android:background="@drawable/raise"
+        app:layout_constraintTop_toBottomOf="@id/iv_button_bot_4"
+        app:layout_constraintStart_toStartOf="@id/iv_button_bot_4"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_raise_bot4"
+        android:layout_marginStart="10dp"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@id/iv_raise_bot4"
+        app:layout_constraintTop_toTopOf="@id/iv_raise_bot4"
+        app:layout_constraintBottom_toBottomOf="@id/iv_raise_bot4"
+        tools:text="raiseBot4" />
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_bot4"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bot_profile_picture"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot4_frame_highlight_green"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/picture_frame_green"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot4_frame_highlight_red"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/picture_frame_red"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tv_bot4_card1"
+            android:layout_width="31dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:visibility="visible"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tv_bot4_card2"
+            android:layout_width="31dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/tv_bot4_card1"
+            app:layout_constraintStart_toEndOf="@id/tv_bot4_card1"
+            app:layout_constraintTop_toTopOf="@id/tv_bot4_card1" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot4_chip"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="2dp"
+            android:src="@drawable/poker_chip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bot4_chip_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@id/iv_bot4_chip"
+            app:layout_constraintStart_toEndOf="@id/iv_bot4_chip"
+            app:layout_constraintTop_toTopOf="@id/iv_bot4_chip"
+            tools:text="123456789" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bot4_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Bot4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_button_bot_5"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:visibility="invisible"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/dealer"
+        app:layout_constraintBottom_toTopOf="@id/cl_bot5"
+        app:layout_constraintEnd_toEndOf="@id/cl_bot5" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_raise_bot5"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="10dp"
+        android:visibility="invisible"
+        android:background="@drawable/raise"
+        app:layout_constraintEnd_toStartOf="@id/tv_raise_bot_5"
+        app:layout_constraintBottom_toBottomOf="@id/tv_raise_bot_5"
+        app:layout_constraintTop_toTopOf="@id/tv_raise_bot_5" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_raise_bot_5"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="12dp"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="@id/cl_bot5"
+        app:layout_constraintBottom_toTopOf="@id/cl_bot5"
+        tools:text="raiseBot5" />
+
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_check_bot5"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="10dp"
+        android:visibility="invisible"
+        android:background="@drawable/check"
+        app:layout_constraintEnd_toStartOf="@id/tv_raise_bot_5"
+        app:layout_constraintBottom_toBottomOf="@id/tv_raise_bot_5"
+        app:layout_constraintTop_toTopOf="@id/tv_raise_bot_5" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_check_bot_5"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/check"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="@id/cl_bot5"
+        app:layout_constraintBottom_toTopOf="@id/cl_bot5"
+        tools:text="@string/check" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_fold_bot5"
+        android:layout_width="30dp"
+        android:layout_height="16dp"
+        android:visibility="invisible"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/fold"
+        app:layout_constraintEnd_toStartOf="@id/tv_raise_bot_5"
+        app:layout_constraintBottom_toBottomOf="@id/tv_raise_bot_5"
+        app:layout_constraintTop_toTopOf="@id/tv_raise_bot_5" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_fold_bot_5"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="12dp"
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:text="@string/fold"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="@id/cl_bot5"
+        app:layout_constraintBottom_toTopOf="@id/cl_bot5"
+        tools:text="@string/fold" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_bot5"
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="55dp"
+        android:background="@drawable/bot_profile_picture"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot5_frame_highlight_green"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/picture_frame_green"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot5_frame_highlight_red"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/picture_frame_red"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tv_bot5_card1"
+            android:layout_width="31dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
+            android:visibility="visible"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tv_bot5_card2"
+            android:layout_width="31dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="4dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/tv_bot5_card1"
+            app:layout_constraintStart_toEndOf="@id/tv_bot5_card1"
+            app:layout_constraintTop_toTopOf="@id/tv_bot5_card1" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_bot5_chip"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="2dp"
+            android:src="@drawable/poker_chip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bot5_chip_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@id/iv_bot5_chip"
+            app:layout_constraintStart_toEndOf="@id/iv_bot5_chip"
+            app:layout_constraintTop_toTopOf="@id/iv_bot5_chip"
+            tools:text="123456789" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bot5_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Bot5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
