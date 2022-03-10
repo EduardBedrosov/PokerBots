@@ -10,6 +10,7 @@
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__0_of_hearts.xml" value="0.403125" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__1.xml" value="0.403125" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__12.xml" value="0.403125" />
+        <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__13.xml" value="0.403125" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__15.xml" value="0.403125" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__16.xml" value="0.403125" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__17.xml" value="0.403125" />
@@ -24,11 +25,13 @@
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__21.xml" value="0.403125" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__22.xml" value="0.403125" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__24.xml" value="0.403125" />
+        <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__26.xml" value="0.403125" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__2_of_clubs.xml" value="0.403125" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__2_of_diamonds.xml" value="0.403125" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__2_of_spades.xml" value="0.403125" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__3.xml" value="0.403125" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__34.xml" value="0.403125" />
+        <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__39.xml" value="0.403125" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__3_of_diamonds.xml" value="0.403125" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__43.xml" value="0.3203125" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/ic__51.xml" value="0.3203125" />
@@ -45,6 +48,7 @@
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/drawable/starting_bg_3.xml" value="0.403125" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/layout/fragment_base.xml" value="0.33" />
         <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker/app/src/main/res/layout/fragment_game.xml" value="0.5" />
+        <entry key="..\:/Users/Shiroyasha/AndroidStudioProjects/Poker_git/app/src/main/res/layout/fragment_game.xml" value="0.38697916666666665" />
       </map>
     </option>
   </component>

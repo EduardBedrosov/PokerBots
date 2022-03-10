@@ -27,7 +27,7 @@ class Table {
         val deckLists: MutableList<Cards> = mutableListOf()
 
 
-        for (i in 0..13) {
+        for (i in 0..15) {
             if (i - 1 == 12) {
                 for (k in 0..4) {
                     deckLists.add(cardsObj[i + 1 + k + 1])
@@ -56,7 +56,6 @@ class Table {
         return Player(card1, card2, chipsHave)
     }
 
-    //stegh kara elsei pakasutyun lini mardes
     private fun createCarts(): MutableList<Cards> {
         val listOfCards: MutableList<Cards> = mutableListOf()
         for (i in 0..51) {

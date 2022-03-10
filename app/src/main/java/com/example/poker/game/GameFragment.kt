@@ -8,7 +8,6 @@ import android.view.View.INVISIBLE
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.poker.R
@@ -201,7 +200,8 @@ class GameFragment : Fragment() {
                             card2Image[i].visibility = View.VISIBLE
                         }
                         for (i in 0..4) {
-                            deckString[i].visibility = INVISIBLE
+                            deckString[i].setImageResource(R.drawable.ic__back_of_card)
+                            deckString[i].visibility = View.INVISIBLE
                         }
                         potText.visibility = INVISIBLE
                         foldButton.visibility = INVISIBLE
@@ -213,16 +213,22 @@ class GameFragment : Fragment() {
                     is TurnState.DealerAndPlayerCards -> {
                         setToPlayerOfNumber(it.playerNumber, button).visibility =
                             View.VISIBLE
-                        binding.tvBot0Card1.setImageResource(it.card1.cardImage)
-                        binding.tvBot0Card2.setImageResource(it.card2.cardImage)
-                        binding.tvBot0Card1.visibility = View.VISIBLE
-                        binding.tvBot0Card2.visibility = View.VISIBLE
+                        binding.apply {
+                            tvBot0Card1.setImageResource(it.card1.cardImage)
+                            tvBot0Card2.setImageResource(it.card2.cardImage)
+                            tvBot0Card1.visibility = View.VISIBLE
+                            tvBot0Card2.visibility = View.VISIBLE
 
-                        for (i in deckString.indices) {
-                            deckString[i].setImageResource(it.deck[i].cardImage)
+                            tvDeck0.setImageResource(it.deck0.cardImage)
+                            tvDeck1.setImageResource(it.deck1.cardImage)
+                            tvDeck2.setImageResource(it.deck2.cardImage)
+                            tvDeck3.setImageResource(it.deck3.cardImage)
+                            tvDeck4.setImageResource(it.deck4.cardImage)
                         }
+//                        for (i in deckString.indices) {
+//                            deckString[i].setImageResource(it.deck[i].cardImage)
+//                        }
                     }
-
                     is TurnState.StartFlopVisibility -> {
                         foldButton.visibility = INVISIBLE
                         callButton.visibility = INVISIBLE
@@ -271,7 +277,6 @@ class GameFragment : Fragment() {
                             checkedTextViewList[i].visibility = INVISIBLE
                             foldTextViewList[i].visibility = INVISIBLE
                         }
-
                     }
                     is TurnState.Chips -> {
                         setToPlayerOfNumber(it.playerNumber, chipsViewList).text =
@@ -282,13 +287,11 @@ class GameFragment : Fragment() {
                             chipsViewList[i].text = it.chips[i].toString()
                         }
                     }
-
                     is TurnState.Pot -> {
                         binding.potSize.visibility = View.VISIBLE
                         binding.potSize.text = it.pot.toString()
 
                     }
-
                     is TurnState.Raise -> {
                         for (i in 0..5) {
                             frameGreen[i].visibility = INVISIBLE
@@ -307,7 +310,6 @@ class GameFragment : Fragment() {
                             View.VISIBLE
                         setToPlayerOfNumber(it.playerNumber, chipsViewList).text =
                             it.playersChips.toString()
-
                     }
                     is TurnState.Fold -> {
                         for (i in 0..5) {
@@ -331,9 +333,7 @@ class GameFragment : Fragment() {
                             View.VISIBLE
                         setToPlayerOfNumber(it.playerNumber, foldTextViewList).visibility =
                             View.VISIBLE
-
                     }
-
                     is TurnState.Check -> {
                         for (i in 0..5) {
                             frameGreen[i].visibility = INVISIBLE
@@ -348,9 +348,7 @@ class GameFragment : Fragment() {
                             View.VISIBLE
                         setToPlayerOfNumber(it.playerNumber, checkedTextViewList).visibility =
                             View.VISIBLE
-
                     }
-
                     is TurnState.Call -> {
                         for (i in 0..5) {
                             frameGreen[i].visibility = INVISIBLE
@@ -370,8 +368,6 @@ class GameFragment : Fragment() {
                         setToPlayerOfNumber(it.playerNumber, chipsViewList).text =
                             it.playersChips.toString()
                     }
-
-
                     is TurnState.UserGamePlay -> {
                         val state = it.state
                         val indexNumber = it.indexNumber
@@ -382,12 +378,13 @@ class GameFragment : Fragment() {
                         }
                         setToPlayerOfNumber(0, frameGreen).visibility =
                             View.VISIBLE
-
-                        binding.raiseSlider.visibility = View.VISIBLE
-                        binding.playerRaiseButton.visibility = View.VISIBLE
-                        binding.playerRaiseButton.isEnabled = true
-                        binding.playerFoldButton.visibility = View.VISIBLE
-                        binding.playerFoldButton.isEnabled = true
+                        binding.apply {
+                            raiseSlider.visibility = View.VISIBLE
+                            playerRaiseButton.visibility = View.VISIBLE
+                            playerRaiseButton.isEnabled = true
+                            playerFoldButton.visibility = View.VISIBLE
+                            playerFoldButton.isEnabled = true
+                        }
                         if (raiseDefault == 0) {
                             binding.playerCheckButton.visibility = View.VISIBLE
                             binding.playerCheckButton.isEnabled = true
@@ -395,7 +392,6 @@ class GameFragment : Fragment() {
                             binding.playerCallButton.visibility = View.VISIBLE
                             binding.playerCallButton.isEnabled = true
                         }
-
                         binding.playerFoldButton.setOneTimeClickListener {
                             binding.playerFoldButton.visibility = View.GONE
                             binding.playerCallButton.visibility = View.GONE
@@ -592,9 +588,7 @@ class GameFragment : Fragment() {
                             }
                         }
                     }
-
                     is TurnState.NextPlayer -> {
-
                         if (it.IsBigBlind) {
                             viewModel.startBotsTurnBigBlind(it.indexNumber, it.turnLiveData)
                         } else
@@ -623,11 +617,9 @@ class GameFragment : Fragment() {
                     is TurnState.NextLoopRiver -> {
                         viewModel.nextLoopRiver(it.turnLiveData, it.indexNumber)
                     }
-
                     is TurnState.NewGame -> {
                         viewModel.startNewGame(it.chipsList)
                     }
-
                     is TurnState.Ending -> {
                         val chips = it.chips
                         val pot = it.pot
@@ -636,8 +628,6 @@ class GameFragment : Fragment() {
                         val inGame = it.inGame
                         val winnersIndexes = mapToKeyList(winners)
                         val winnerCombo = mapToValuesList(winners)
-
-
                         CoroutineScope(Dispatchers.Main).launch {
                             for(i in inGame.indices){
                                 if (inGame[i]){
@@ -673,7 +663,7 @@ class GameFragment : Fragment() {
                                     delay(1000)
                                 }
 
-                                delay(6000)
+                                delay(5000)
 
                                 withContext(Dispatchers.Main) {
                                     Toast.makeText(
@@ -685,7 +675,7 @@ class GameFragment : Fragment() {
                                     delay(5000)
                                 }
                                 withContext(Dispatchers.Main) {
-                                    Toast.makeText(activity, pot.toString(), Toast.LENGTH_LONG)
+                                    Toast.makeText(activity, (pot/winnersIndexes.size).toString(), Toast.LENGTH_LONG)
                                         .show()
                                     delay(1000)
                                 }
@@ -693,7 +683,7 @@ class GameFragment : Fragment() {
                                     withContext(Dispatchers.Main) {
                                         Toast.makeText(
                                             activity,
-                                            "And Also Winner is ",
+                                            "And Also",
                                             Toast.LENGTH_LONG
                                         ).show()
                                         delay(1000)

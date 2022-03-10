@@ -39,19 +39,23 @@ class PreFlopGamePlay(
         preFlopLifeData: MutableLiveData<BaseState>
     ) {
         preFlopLifeData.postValue(TurnState.StartGameVisibilityDefault(pot))
-        delay(1000)
+        delay(2000)
         playing = true
         round++
         setBlinds(round)
         table.createTable(chips)
-        deck = table.createdDeck
         players = table.createdPlayer
+        deck = table.createdDeck
         raiseDone = bigBlind
         val dealer: Int = indexes[3]
         preFlopLifeData.postValue(
             TurnState.DealerAndPlayerCards(
                 dealer,
-                deck,
+                deck[0],
+                deck[1],
+                deck[2],
+                deck[3],
+                deck[4],
                 players[0].cart1,
                 players[0].cart2,
                 players[1].cart1,
@@ -66,7 +70,7 @@ class PreFlopGamePlay(
                 players[5].cart2
             )
         )
-        delay(1000)
+        delay(2000)
         raise(players[indexes[4]], smallBlind)
         raise(players[indexes[5]], bigBlind)
         tempRaise[indexes[4]] = smallBlind
@@ -423,7 +427,6 @@ class PreFlopGamePlay(
         if (inGame[playersIndex] && ((tempRaise[playersIndex] != raiseDone) || (raiseDoneCounter == 0))) {
             check[playersIndex] = true
             if (raiseDoneCounter == 0 && callDoneCounter == 0) {
-
                 chips = notFolded(chips, players, inGame, pot)
                 preFlopLifeData.postValue(
                     TurnState.Chips(
@@ -454,7 +457,7 @@ class PreFlopGamePlay(
                     ) {
                         raiseDone = raise(
                             players[playersIndex],
-                            (raiseDone * 8 / 3 - tempRaise[playersIndex])
+                            (raiseDone * 8/3 - tempRaise[playersIndex])
                         )
                         preFlopLifeData.postValue(
                             TurnState.Raise(

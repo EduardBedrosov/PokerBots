@@ -176,7 +176,7 @@ class FlopGamePlay(
                         raiseDone = pot/6
                     }
                     raiseDone =
-                        raise(player[playersIndex], (raiseDone * 3 - tempRaise[playersIndex]))
+                        raise(player[playersIndex], (raiseDone * ((24..32).random())/10 - tempRaise[playersIndex]))
                     flopLiveData.postValue(
                         TurnState.Raise(
                             playersIndex,

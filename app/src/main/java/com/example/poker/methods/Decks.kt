@@ -7,7 +7,7 @@ data class Cards(
     val id: Int,
     val cardName: String,
     val cardSuit: String,
-    val cardImage: Int = 4
+    val cardImage: Int = 0
 )
 
 val cardNameList = listOf(

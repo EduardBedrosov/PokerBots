@@ -20,7 +20,11 @@ sealed class TurnState : BaseState {
     data class StartRiverVisibility(val playerNumber: Int) : TurnState()
     data class DealerAndPlayerCards(
         val playerNumber: Int,
-        val deck: List<Cards>,
+        val deck0: Cards,
+        val deck1: Cards,
+        val deck2: Cards,
+        val deck3: Cards,
+        val deck4: Cards,
         val card1: Cards,
         val card2: Cards,
         val card3: Cards,
