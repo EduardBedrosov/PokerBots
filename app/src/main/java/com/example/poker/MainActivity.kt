@@ -16,9 +16,10 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN)
 //        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         try {
-            this.supportActionBar!!.hide()
+            this.supportActionBar?.hide()
         } // catch block to handle NullPointerException
-        catch (e: NullPointerException) {
+        catch (e: Exception) {
+
         }
         setContentView(R.layout.activity_main)
     }

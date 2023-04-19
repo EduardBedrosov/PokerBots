@@ -728,7 +728,7 @@ private fun hideSoftKeyboard(activity: Activity) {
     ) as InputMethodManager
     if (inputMethodManager.isAcceptingText) {
         inputMethodManager.hideSoftInputFromWindow(
-            activity.currentFocus!!.windowToken,
+            activity.currentFocus?.windowToken,
             0
         )
     }
